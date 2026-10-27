@@ -1,0 +1,118 @@
+{
+  "sha": "2fc9cd52c92365958b8ce025d736c54962b2cc6b",
+  "url": "https://api.github.com/repos/ck001111-bo/hongguo-web-replica/git/trees/2fc9cd52c92365958b8ce025d736c54962b2cc6b",
+  "tree": [
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3c4593898b1d436e8bae6bcf93d33dfdf968ea61",
+      "size": 30,
+      "url": "https://api.github.com/repos/ck001111-bo/hongguo-web-replica/git/blobs/3c4593898b1d436e8bae6bcf93d33dfdf968ea61"
+    },
+    {
+      "path": "HGTV_反编译与架构分析报告.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bc712a7596341708598f07e28bbf26c23c655053",
+      "size": 14131,
+      "url": "https://api.github.com/repos/ck001111-bo/hongguo-web-replica/git/blobs/bc712a7596341708598f07e28bbf26c23c655053"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7",
+      "size": 35149,
+      "url": "https://api.github.com/repos/ck001111-bo/hongguo-web-replica/git/blobs/f288702d2fa16d3cdf0035b15a9fcbc552cd88e7"
+    },
+    {
+      "path": "NOTICE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0df97882cf5b5db4810e953680cc5226256c6b12",
+      "size": 1248,
+      "url": "https://api.github.com/repos/ck001111-bo/hongguo-web-replica/git/blobs/0df97882cf5b5db4810e953680cc5226256c6b12"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "de50c47b441ccb50a1dae851da2dfe430d1d2022",
+      "size": 1774,
+      "url": "https://api.github.com/repos/ck001111-bo/hongguo-web-replica/git/blobs/de50c47b441ccb50a1dae851da2dfe430d1d2022"
+    },
+    {
+      "path": "web",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "87df0008e68e0c8e214a9298c2c802e1c4f458d0",
+      "url": "https://api.github.com/repos/ck001111-bo/hongguo-web-replica/git/trees/87df0008e68e0c8e214a9298c2c802e1c4f458d0"
+    },
+    {
+      "path": "web/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6a44ffc66d486d933e609e79f6e75f0765ad9d80",
+      "size": 2575,
+      "url": "https://api.github.com/repos/ck001111-bo/hongguo-web-replica/git/blobs/6a44ffc66d486d933e609e79f6e75f0765ad9d80"
+    },
+    {
+      "path": "web/api.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "88fd9d5824c09054424efea9b3035b3de5bc2740",
+      "size": 1294,
+      "url": "https://api.github.com/repos/ck001111-bo/hongguo-web-replica/git/blobs/88fd9d5824c09054424efea9b3035b3de5bc2740"
+    },
+    {
+      "path": "web/app.js",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6040e8891d81908f50be8ddc554ff9cfd1804fe6",
+      "size": 11526,
+      "url": "https://api.github.com/repos/ck001111-bo/hongguo-web-replica/git/blobs/6040e8891d81908f50be8ddc554ff9cfd1804fe6"
+    },
+    {
+      "path": "web/demo-data.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "82bdb7c61fae85f9c506a2fea32074b0df5bd08b",
+      "size": 5211,
+      "url": "https://api.github.com/repos/ck001111-bo/hongguo-web-replica/git/blobs/82bdb7c61fae85f9c506a2fea32074b0df5bd08b"
+    },
+    {
+      "path": "web/index.html",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "27679b43e78a9e68a4a5b708a0196ea747e78ab6",
+      "size": 1636,
+      "url": "https://api.github.com/repos/ck001111-bo/hongguo-web-replica/git/blobs/27679b43e78a9e68a4a5b708a0196ea747e78ab6"
+    },
+    {
+      "path": "web/package.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7c3a669191a682e1eebe55e2111f0f60b5d283a2",
+      "size": 348,
+      "url": "https://api.github.com/repos/ck001111-bo/hongguo-web-replica/git/blobs/7c3a669191a682e1eebe55e2111f0f60b5d283a2"
+    },
+    {
+      "path": "web/server.mjs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7ec22ab4a466bd58d78e839c4b7062675453c8b4",
+      "size": 4998,
+      "url": "https://api.github.com/repos/ck001111-bo/hongguo-web-replica/git/blobs/7ec22ab4a466bd58d78e839c4b7062675453c8b4"
+    },
+    {
+      "path": "web/style.css",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1ddfe8a19a15e2a51ee9d58123eb0bc826d118d6",
+      "size": 7459,
+      "url": "https://api.github.com/repos/ck001111-bo/hongguo-web-replica/git/blobs/1ddfe8a19a15e2a51ee9d58123eb0bc826d118d6"
+    }
+  ],
+  "truncated": false
+}
