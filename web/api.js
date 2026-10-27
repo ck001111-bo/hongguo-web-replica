@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: GPL-3.0-only
-// 衍生作品，基于 N3urda/hongguoTV (GPL-3.0) — https://github.com/N3urda/hongguoTV
 // 与上游 server/ 完全一致的接口契约（同源经由 dev server 代理，规避跨域）。
 //   GET /api/home?page=      -> { items: Series[], page, pages?, total? }
 //   GET /api/search?q=&page=  -> { items: Series[], page }
@@ -9,7 +8,19 @@
 const BASE = ""; // 同源
 
 async function getJSON(path) {
-  const r = await fetch(BASE + path, { headers: { Accept: "application/json" } });
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 10000);
+  let r;
+  try {
+    r = await fetch(BASE + path, {
+      headers: { Accept: "application/json" },
+      signal: ctrl.signal,
+    });
+  } catch (e) {
+    throw new Error("请求超时或网络不可达，请稍后重试");
+  } finally {
+    clearTimeout(timer);
+  }
   if (!r.ok) {
     let msg = `请求失败 ${r.status}`;
     try { msg = (await r.json()).error || msg; } catch {}

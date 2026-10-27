@@ -17,7 +17,8 @@ const ROOT = __dirname;
 const BRIDGE_BASE_URL = (process.env.BRIDGE_BASE_URL || "").replace(/\/$/, "");
 const BRIDGE_TOKEN = process.env.BRIDGE_TOKEN || "";
 const PORT = Number(process.env.PORT || 5173);
-const HOST = process.env.HOST || "127.0.0.1";
+const HOST = process.env.HOST || "0.0.0.0";
+const BRIDGE_TIMEOUT = Number(process.env.BRIDGE_TIMEOUT || 8000); // 上游无响应时回退演示数据，避免前端永久“加载中”
 
 const MIME = {
   ".html": "text/html; charset=utf-8",
@@ -47,7 +48,7 @@ async function proxyToBridge(req, res, urlPath, urlQuery) {
   if (BRIDGE_TOKEN) headers["authorization"] = `Bearer ${BRIDGE_TOKEN}`;
   const upstream = http.request(
     target,
-    { method: req.method, headers },
+    { method: req.method, headers, timeout: BRIDGE_TIMEOUT },
     (upRes) => {
       // 真实播放流失败（上游签名接口不可达/被拒）时，回退公共样例，保持播放器可用
       if (
@@ -63,8 +64,12 @@ async function proxyToBridge(req, res, urlPath, urlQuery) {
       upRes.pipe(res);
     }
   );
+  upstream.on("timeout", () => {
+    // 上游/桥接在超时窗口内无响应（上游接口偶发挂起）：中断并走下方 error 回退演示数据
+    upstream.destroy(new Error("bridge timeout"));
+  });
   upstream.on("error", () => {
-    // 后端不可达：JSON 接口回退演示数据；流接口回退公共样例
+    // 后端不可达或超时：JSON 接口回退演示数据；流接口回退公共样例
     if (urlPath.startsWith("/api/episodes/") && urlPath.endsWith("/stream")) {
       // 浏览器 <video> 播放跨域 MP4 不需要 CORS，直接 302 到公共样例
       res.writeHead(302, {
