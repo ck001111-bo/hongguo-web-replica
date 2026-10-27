@@ -1,0 +1,15 @@
+{
+  "name": "hongguotv-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "红果TV 网页复刻版（教学样本）：同源 API 客户端 + Web 跨域适配层",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "GPL-3.0-only"
+}
