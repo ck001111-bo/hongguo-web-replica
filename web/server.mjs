@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: GPL-3.0-only
-// 衍生作品，基于 N3urda/hongguoTV (GPL-3.0) — https://github.com/N3urda/hongguoTV
 // Web 端适配层（上游 API 文档明确指出："当前没有浏览器跨域白名单配置，因此 Web 端需额外适配"）
 // 本服务做两件事：
 //   1) 托管静态前端（index.html / app.js / style.css ...）
@@ -10,7 +9,7 @@ import { readFile, stat } from "node:fs/promises";
 import { createReadStream } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
-import { demoHandlers } from "./demo-data.mjs";
+import { demoHandlers, SAMPLE_MP4 } from "./demo-data.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = __dirname;
@@ -50,6 +49,16 @@ async function proxyToBridge(req, res, urlPath, urlQuery) {
     target,
     { method: req.method, headers },
     (upRes) => {
+      // 真实播放流失败（上游签名接口不可达/被拒）时，回退公共样例，保持播放器可用
+      if (
+        upRes.statusCode &&
+        upRes.statusCode >= 400 &&
+        urlPath.startsWith("/api/episodes/") &&
+        urlPath.endsWith("/stream")
+      ) {
+        res.writeHead(302, { Location: SAMPLE_MP4 });
+        return res.end();
+      }
       res.writeHead(upRes.statusCode || 502, upRes.headers);
       upRes.pipe(res);
     }

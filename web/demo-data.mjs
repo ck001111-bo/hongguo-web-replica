@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: GPL-3.0-only
-// 衍生作品，基于 N3urda/hongguoTV (GPL-3.0) — https://github.com/N3urda/hongguoTV
 // 内置演示数据：严格对齐上游 server/ 的 Series / Episode 字段定义。
 //   Series: id, title, cover, description, badge, tags
 //   Episode: id, number, title
@@ -104,4 +103,4 @@ export function demoHandlers(urlPath, urlQuery, req) {
   return null;
 }
 
-export { TAGS };
+export { TAGS, SAMPLE_MP4 };
